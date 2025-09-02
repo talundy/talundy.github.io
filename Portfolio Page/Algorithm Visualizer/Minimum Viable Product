@@ -1,0 +1,177 @@
+
+Minimum Viable Product
+- Single algorithm (let's start with bubble sort, why not)
+- Visualization of each algorithm step-by-step.
+- Play / Pause / Reset controls.
+- Adjustable speed slider.
+- Small UI for choosing algorithm.
+
+Nice-to-haves: 
+- Step-by-step forward/backward navigation.
+- Allow user input (e.g., type an array or draw a graph).
+- Explanatory text alongside visualization (teaching angle).
+- Multiple algorithms to compare side by side.
+- Code snippet viewer that updates with the visualization.
+
+Love it — let’s treat this like a real product. Below is a **professional, structure-only plan** you can drop into your MVP/planning doc and use to shape the repo, docs, and launch. No code, just decisions, scope, and process.
+
+# Product framing
+
+**Vision:** A fast, polished, in-browser tool that *teaches* algorithms interactively and demonstrates solid SWE craft (architecture, testing, CI/CD, a11y, docs).
+**Audience:** Recruiters, engineers reviewing your work, students.
+**Success metrics (v1):**
+
+* Time-to-first-interaction < 2s on mid-range laptop.
+* 60 FPS animations for n ≤ 200 (sorting).
+* Clear “how it works” + repo link + one embedded demo on the product page.
+
+# Tech stack (static-hosting friendly)
+
+**Core:**
+
+* **TypeScript** (type safety + self-documenting API surfaces).
+* **Vite** (simple, fast dev/build; emits static assets).
+* **React (functional + hooks)** for UI controls and state; or Svelte if you prefer minimal runtime.
+* **SVG first, Canvas later**:
+
+  * SVG is perfect for sorting bars, small graphs (clean, accessible).
+  * Add a Canvas renderer for dense graphs later.
+* **No backend** (GitHub Pages-friendly).
+* **Optional libs:**
+
+  * **Zustand** or simple Context for global playback/speed state (keep tiny).
+  * **D3 utilities only** (scales/layout math), not full D3 rendering, to keep control over animation.
+
+**Why this mix:** static deploys, quick iteration, clean separation between “algorithm engine” and “renderer”, with a path to scale visuals.
+
+# Architecture (clean separations)
+
+* **/algorithms/** — Pure, deterministic TS modules. Each exports:
+
+  * `validate(input) → errors[]`
+  * `*trace(input, settings): Generator<Operation>` (yields semantic steps like `Compare(i,j)`, `Swap(i,j)`, `Mark(i, state)`)
+  * `metadata` (stable? in-place? complexity?)
+* **/player/** — Consumes `Operation`s, manages time (play/pause/speed/step). Uses `requestAnimationFrame`, supports step-forward/back (via reversible ops or state snapshots at intervals).
+* **/renderers/** — `Renderer` interface with SVG impl (v1) and Canvas impl (later).
+* **/ui/** — Controls (algo picker, sliders, array size, randomize, reset), metrics panel, help panel.
+* **/examples/** — Prebaked inputs (sorted, reversed, dupes) for demos/tests.
+* **/analytics/** — Optional, privacy-friendly (see below).
+* **/site/** — Product page content (hero, demo embed, docs links).
+
+**Deploy options:**
+
+
+For now, keep each demo as a standalone HTML entry (your `algo_visualizer.html`), simplest on Pages.
+
+# Documentation set (what to include)
+
+* **README.md** — What it is, live demo link, features, quick start, screenshots/gifs, tech stack, roadmap preview.
+* **PRD.md** *(product requirements)* — Problem, goals, MVP scope, out of scope, personas, success metrics.
+* **ARCHITECTURE.md** — Module boundaries, Operation schema, render pipeline, state model, extensibility.
+* **ALGORITHMS.md** — For each algo: description, complexity, stability, invariants, edge cases, validation rules.
+* **TESTING.md** — Strategy & commands; unit/property tests; UI & E2E plan; performance checks.
+* **ACCESSIBILITY.md** — Keyboard map, ARIA strategy, reduced-motion behavior, color contrast.
+* **DEPLOYMENT.md** — How Pages is configured, build steps, custom domain notes.
+* **CONTRIBUTING.md** — Setup, scripts, branch/PR process, coding style, commit format.
+* **CODE\_OF\_CONDUCT.md** — Standard.
+* **SECURITY.md** — Report process; dependency policy.
+* **ROADMAP.md** — Near-term (next 4–6 weeks) and later features.
+* **CHANGELOG.md** — Keep via conventional commits/semantic release.
+* **PRIVACY.md** *(if analytics)* — What’s collected (ideally none/aggregate only), how to opt out.
+
+# MVP scope (clear, shippable)
+
+**Algorithms:** Merge Sort (+ Bubble or Insertion for contrast).
+**Features:**
+
+* Play / Pause / Step / Reset.
+* Speed slider (0.25×–4×).
+* Array size slider (e.g., 5–200).
+* Generate patterns: random, reversed, nearly sorted, many duplicates.
+* Metrics: comparisons, swaps, elapsed time (sim time, not wall), stability badge.
+* Help panel with 3–4 bullets explaining what to look for.
+  **A11y:**
+* Full keyboard: space (play/pause), ←/→ (step), R (reset), +/- (speed).
+* Respect `prefers-reduced-motion` (fall back to stepwise updates).
+* Clear focus states; ARIA live region for status (e.g., “comparing 4 and 7”).
+  **Performance:**
+* 60 FPS for n ≤ 200 on typical laptop; time-slicing if needed (batch ops per frame).
+
+# Testing & quality
+
+* **Unit tests (algorithms):** verify sorted output + permutation property; known fixtures.
+* **Property-based tests:** with `fast-check` (JS) for random arrays:
+
+  * Output is sorted ascending.
+  * Output is a permutation of input.
+* **Trace tests:** run `trace()` to ensure operations replay to the same result; snapshot a few traces (small n).
+* **UI tests:** Playwright for play/pause/step correctness and keyboard shortcuts.
+* **Performance checks:** simple benchmark script; optional Lighthouse CI for the product page.
+* **Static checks:** ESLint (TS rules), Prettier, TypeScript `--strict`.
+* **Pre-commit hooks:** Husky + lint-staged (format/lint only changed files).
+
+# CI/CD (GitHub Actions)
+
+* **Pipeline:** `typecheck → lint → test → build` on PRs; deploy on `main` merges or tags.
+* **Release flow:** conventional commits → semantic versioning → changelog generation → publish build to Pages.
+* **Artifacts:** keep a zipped build per release for reproducibility.
+
+# Analytics (optional, privacy-first)
+
+* Consider **Plausible** or no analytics initially. If enabled: pageview + custom event “Demo Interacted” only, no cookies. Provide opt-out in a footer link; document in PRIVACY.md.
+
+# Accessibility & UX guidelines
+
+* Keyboard parity for all controls; visible labels and tooltips.
+* High contrast & color-blind-safe defaults; don’t encode meaning with color alone.
+* “Reduced motion” = disable tweened animations, switch to discrete steps.
+* Provide a “Reset to defaults” control.
+* Keep copy tight and beginner-friendly.
+
+# SEO & social
+
+* Descriptive `<title>`, meta description, OpenGraph/Twitter tags, social share image.
+* Lightweight JSON-LD (SoftwareApplication).
+* Sitemap & robots.txt (static).
+* Include a canonical link if mirrored elsewhere.
+
+# Licensing & attribution
+
+* **License:** MIT (default for demos) unless you prefer Apache-2.0.
+* Attribute any third-party fonts/icons. Avoid copyleft libs if you want unrestricted reuse.
+
+# Roadmap (additive growth)
+
+* **v1.1:** Add Insertion Sort (stable), side-by-side compare (Merge vs Insertion).
+* **v1.2:** BFS/DFS on a small graph editor (SVG), node visit order, parent pointers.
+* **v1.3:** Dijkstra on weighted grid (no negative edges), highlight frontier, distances table.
+* **v1.4:** A\* with heuristic toggle; show explored vs optimal path.
+* **v1.5:** DP table visual (LCS or Knapsack) with cell fill order and choices.
+
+# Risks & mitigations
+
+* **Performance jank:** precompute traces *incrementally* (generator + time slicing); batch operations per frame.
+* **GH Pages SPA 404s:** avoid client-side routing or use hash routing; standalone HTML per demo.
+* **Accessibility debt:** bake a11y into MVP; test with keyboard and reduced-motion early.
+* **Scope creep:** lock MVP to Merge Sort + core controls; everything else goes to ROADMAP.
+
+# Product page content (for your portfolio)
+
+* **Hero:** “Interactive Algorithm Visualizer — learn, inspect, and compare classic algorithms.”
+* **Live demo embed** (the sorting MVP).
+* **Highlights:** 60 FPS, stepwise replays, stability/complexity badges, keyboard controls.
+* **How it works:** short diagram + bullets.
+* **Tech stack & practices:** TS, tests, CI/CD, a11y, Pages.
+* **Links:** Live demo, repo, docs, roadmap.
+
+# Definition of Done (MVP)
+
+* Merge Sort demo shippable with play/pause/step/reset + speed & size controls.
+* Metrics visible; help text present; keyboard-accessible.
+* README/PRD/ARCHITECTURE/TESTING/ACCESSIBILITY/DEPLOYMENT complete.
+* CI green on lint/type/tests; Page deploys automatically on main.
+* Screenshot + OG image in `/public` for sharing.
+
+---
+
+If you want, I can turn this into a **filled-out PRD.md + ARCHITECTURE.md + ROADMAP.md** outline tailored to your repo so you can paste directly into your planning doc.
