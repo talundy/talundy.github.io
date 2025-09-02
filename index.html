@@ -3,9 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+            <title>Thomas Lundy - Portfolio</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <style>
+        /* Home page specific header styles */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <nav class="container">
+            <div class="logo">Thomas Lundy</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="About Me Page/about_me.html">About</a></li>
+                <li><a href="Portfolio Page/portfolio.html">Portfolio</a></li>
+                <li><a href="Job Page/job.html">Experience</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Hi, I'm Thomas Lundy</h1>
+            <p>Welcome to my portfolio website. I'm passionate about technology and creating innovative solutions.</p>
+            <div class="cta-buttons">
+                <a href="About Me Page/about_me.html" class="btn btn-primary">Learn More About Me</a>
+                <a href="Portfolio Page/portfolio.html" class="btn btn-secondary">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="sections">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #333;">What I Do</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 3rem;">Explore the different aspects of my professional journey</p>
+            
+            <div class="section-grid">
+                <div class="section-card">
+                    <h3>About Me</h3>
+                    <p>Get to know me better - my background, skills, and what drives me in the world of technology.</p>
+                    <a href="About Me Page/about_me.html" class="btn btn-primary">Learn More</a>
+                </div>
+                
+                <div class="section-card">
+                    <h3>Portfolio</h3>
+                    <p>Explore my projects and see examples of my work, including the Algorithm Visualizer and other creations.</p>
+                    <a href="Portfolio Page/portfolio.html" class="btn btn-primary">View Projects</a>
+                </div>
+                
+                <div class="section-card">
+                    <h3>Experience</h3>
+                    <p>Learn about my professional experience, skills, and what I can bring to your team or project.</p>
+                    <a href="Job Page/job.html" class="btn btn-primary">See Experience</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Thomas Lundy. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
