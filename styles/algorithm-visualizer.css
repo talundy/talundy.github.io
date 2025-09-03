@@ -260,3 +260,87 @@ body {
         gap: 20px;
     }
 }
+
+/* Back Button Styling */
+.back-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+    margin: 20px 0;
+}
+
+.back-button:hover {
+    background: #357abd;
+    color: white;
+    text-decoration: none;
+}
+
+/* Footer Styling */
+footer {
+    background: #2c3e50;
+    color: white;
+    margin-top: 50px;
+    padding: 40px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #bdc3c7;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.footer-social-link:hover {
+    color: white;
+    background: #34495e;
+    text-decoration: none;
+}
+
+.footer-social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-text {
+    text-align: center;
+    color: #95a5a6;
+    font-size: 14px;
+}
+
+.footer-text p {
+    margin: 0;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-social-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    footer {
+        padding: 30px 0 15px;
+    }
+}
