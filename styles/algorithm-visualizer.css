@@ -241,6 +241,21 @@ body {
     left: 0;
 }
 
+/* Graph Visualization Styles */
+.visualization svg {
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.visualization circle {
+    transition: all 0.3s ease;
+}
+
+.visualization line {
+    transition: all 0.3s ease;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .controls,
