@@ -1,0 +1,10 @@
+n8n - set up the portfolio to automatically update the displayed résumés 
+- set up a reverse proxy 
+    - find what's free
+    - get a free domain if possible
+    - set up TLS/HTTPS for increased security, since this is effectively prod
+- set up the new domain as an authorized domain in google oauth
+- set up google api credentials for n8n to have access to the actual doc
+
+projects
+- fix neural network not running for shit
