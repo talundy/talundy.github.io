@@ -1,0 +1,251 @@
+/* Experience Page Styles */
+.experience-main {
+    padding: var(--spacing-16) 0;
+    min-height: 100vh;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-16);
+}
+
+.page-title {
+    font-size: var(--font-size-4xl);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+}
+
+.page-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: var(--font-size-3xl);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-8);
+    text-align: center;
+}
+
+/* Skills Section */
+.skills-section {
+    margin-bottom: var(--spacing-16);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-6);
+}
+
+.skill-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.skill-icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-4);
+}
+
+.skill-title {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-3);
+    font-size: var(--font-size-xl);
+}
+
+.skill-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-4);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+}
+
+.skill-tag {
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+/* Resume Section */
+.resume-section {
+    margin-bottom: var(--spacing-16);
+}
+
+.resume-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.resume-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.resume-icon {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-4);
+}
+
+.resume-title {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-3);
+    font-size: var(--font-size-xl);
+}
+
+.resume-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-6);
+}
+
+/* Timeline Section */
+.experience-timeline-section {
+    margin-bottom: var(--spacing-16);
+}
+
+.timeline {
+    position: relative;
+    padding-left: var(--spacing-8);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-8);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -28px;
+    top: var(--spacing-4);
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px var(--border-color);
+}
+
+.timeline-content {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.timeline-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-4);
+}
+
+.timeline-title {
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    margin-bottom: 0;
+}
+
+.timeline-company {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+}
+
+.timeline-date {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.timeline-achievements {
+    list-style: none;
+    padding-left: 0;
+}
+
+.timeline-achievements li {
+    position: relative;
+    padding-left: var(--spacing-6);
+    margin-bottom: var(--spacing-2);
+    color: var(--text-secondary);
+}
+
+.timeline-achievements li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.back-section {
+    text-align: center;
+    margin-top: var(--spacing-16);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .experience-main {
+        padding: var(--spacing-12) 0;
+    }
+    
+    .page-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline {
+        padding-left: var(--spacing-6);
+    }
+    
+    .timeline::before {
+        left: 15px;
+    }
+    
+    .timeline-marker {
+        left: -23px;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        gap: var(--spacing-1);
+    }
+}
