@@ -3,32 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>About Me - Thomas Lundy</title>
-    <link rel="stylesheet" href="../styles/common.css">
-    <link rel="stylesheet" href="../styles/pages.css">
+    <title>About Me - Thomas Lundy</title>
+    <meta name="description" content="Get to know my background, skills, and what drives me in the world of technology and AI safety research.">
+    <link rel="stylesheet" href="../styles/design-system.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
+    <link rel="stylesheet" href="../styles/about.css">
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Thomas Lundy</div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Thomas Lundy</a>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="about_me.html">About</a></li>
+                <li><a href="about_me.html" class="active">About</a></li>
                 <li><a href="../Portfolio Page/portfolio.html">Portfolio</a></li>
                 <li><a href="../Experience Page/experience.html">Experience</a></li>
             </ul>
-        </nav>
-    </header>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav">
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about_me.html" class="active">About</a></li>
+                <li><a href="../Portfolio Page/portfolio.html">Portfolio</a></li>
+                <li><a href="../Experience Page/experience.html">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <main class="main-content">
+    <!-- Main Content -->
+    <main class="about-main">
         <div class="container">
-            <div class="page-header">
-                <h1>About Me</h1>
-                <p>Get to know me better - my background, skills, and what drives me</p>
+            <!-- Page Header -->
+            <div class="page-header animate-fade-in">
+                <h1 class="page-title">About Me</h1>
+                <p class="page-subtitle">
+                    Get to know my background, skills, and what drives me in the world of technology and AI safety research
+                </p>
             </div>
 
             <div class="content-sections">
-                <div class="content-card">
+                <div class="content-card animate-slide-up">
                     <h3>Background</h3>
                     <div class="placeholder">
                         <p>This section will contain information about my educational background, where I'm from, and my journey into technology.</p>
@@ -36,8 +56,8 @@
                     </div>
                 </div>
 
-                <div class="content-card">
-                    <h3>Skills</h3>
+                <div class="content-card animate-slide-up">
+                    <h3>Technical Skills</h3>
                     <div class="skills-content">
                         <div class="skill-category">
                             <h4>Software</h4>
@@ -61,8 +81,8 @@
                     </div>
                 </div>
 
-                <div class="content-card">
-                    <h3>Interests</h3>
+                <div class="content-card animate-slide-up">
+                    <h3>Research Interests</h3>
                     <div class="placeholder">
                         <p>This section will highlight my interests, hobbies, and what I'm passionate about outside of work.</p>
                         <p><em>Content coming soon...</em></p>
@@ -70,15 +90,17 @@
                 </div>
             </div>
 
-            <div style="text-align: center;">
-                <a href="../index.html" class="back-button">← Back to Home</a>
-                
-
+            <!-- Back to Home -->
+            <div class="back-section">
+                <a href="../index.html" class="btn btn-secondary">
+                    ← Back to Home
+                </a>
             </div>
         </div>
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-social-links">
@@ -95,9 +117,16 @@
                         GitHub
                     </a>
                 </div>
-                <p>&copy; 2025 Thomas Lundy. All rights reserved.</p>
+                <p>&copy; 2025 Thomas Lundy. Built with care and attention to detail.</p>
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript Modules -->
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/card-interactions.js"></script>
+    <script src="../js/about.js"></script>
 </body>
 </html>

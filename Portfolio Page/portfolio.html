@@ -3,93 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Portfolio - Thomas Lundy</title>
-    <link rel="stylesheet" href="../styles/common.css">
-    <link rel="stylesheet" href="../styles/pages.css">
+    <title>Portfolio - Thomas Lundy</title>
+    <meta name="description" content="Explore my interactive projects including algorithm visualizers, neural networks, and AI safety research applications.">
+    <link rel="stylesheet" href="../styles/design-system.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
     <link rel="stylesheet" href="../styles/portfolio.css">
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Thomas Lundy</div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Thomas Lundy</a>
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../About Me Page/about_me.html">About</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
                 <li><a href="../Experience Page/experience.html">Experience</a></li>
             </ul>
-        </nav>
-    </header>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav">
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../About Me Page/about_me.html">About</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="../Experience Page/experience.html">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <main class="main-content">
+    <!-- Main Content -->
+    <main class="portfolio-main">
         <div class="container">
-            <div class="page-header">
-                <h1>My Portfolio</h1>
-                <p>A collection of my projects and creative work</p>
+            <!-- Page Header -->
+            <div class="page-header animate-fade-in">
+                <h1 class="page-title">Portfolio</h1>
+                <p class="page-subtitle">
+                    Interactive algorithms and neural networks that make complex concepts accessible and engaging
+                </p>
             </div>
 
-            <div class="placeholder">
-                <h3>Featured Project: Algorithm Visualizers</h3>
-                <p>I've created interactive visualizers for different algorithms including sorting algorithms and graph traversal. Check out all three visualizers!</p>
-                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                    <a href="Algorithm Visualizer/merge_sort.html" class="project-btn btn-primary">Merge Sort</a>
-                    <a href="Algorithm Visualizer/insertion_sort.html" class="project-btn btn-primary">Insertion Sort</a>
-                    <a href="Algorithm Visualizer/depth_first_search.html" class="project-btn btn-primary">Depth-First Search</a>
-                </div>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        Algorithm Visualizers
-                    </div>
-                    <div class="project-content">
-                        <h3>Algorithm Visualizers</h3>
-                        <p>Interactive tools for visualizing algorithms including sorting algorithms (Merge Sort, Insertion Sort) and graph traversal (Depth-First Search) with step-by-step animation and controls.</p>
-                        <div class="project-links">
-                            <a href="Algorithm Visualizer/merge_sort.html" class="project-btn btn-primary">Merge Sort</a>
-                            <a href="Algorithm Visualizer/insertion_sort.html" class="project-btn btn-primary">Insertion Sort</a>
-                            <a href="Algorithm Visualizer/depth_first_search.html" class="project-btn btn-primary">Depth-First Search</a>
-                            <a href="Algorithm Visualizer/README.md" class="project-btn btn-secondary">Documentation</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        Interactive Neural Network
-                    </div>
-                    <div class="project-content">
-                        <h3>Interactive Neural Network</h3>
-                        <p>Train a neural network to recognize handwritten digits using TensorFlow.js. Draw digits on the canvas and see real-time predictions with confidence scores. Features live training progress visualization and adjustable hyperparameters.</p>
-                        <div class="project-links">
-                            <a href="Interactive NN/interactive_NN.html" class="project-btn btn-primary">Try It Out</a>
-                            <a href="Interactive NN/Interactive_NN_README.md" class="project-btn btn-secondary">Documentation</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        Project Coming Soon
-                    </div>
-                    <div class="project-content">
-                        <h3>Future Project</h3>
-                        <p>This space is reserved for future projects. More exciting work coming soon!</p>
-                        <div class="project-links">
-                            <span class="project-btn btn-secondary" style="cursor: not-allowed;">Coming Soon</span>
+            <!-- Featured Project Highlight -->
+            <div class="featured-highlight animate-slide-up">
+                <div class="highlight-content">
+                    <div class="highlight-icon">🔄</div>
+                    <div class="highlight-text">
+                        <h2 class="highlight-title">Featured: Algorithm Visualizers</h2>
+                        <p class="highlight-description">
+                            Interactive tools that bring algorithms to life through step-by-step visualization. Perfect for understanding complex computational concepts.
+                        </p>
+                        <div class="highlight-actions">
+                            <a href="Algorithm Visualizer/merge_sort.html" class="btn btn-primary">Try Merge Sort</a>
+                            <a href="Algorithm Visualizer/insertion_sort.html" class="btn btn-secondary">Try Insertion Sort</a>
+                            <a href="Algorithm Visualizer/depth_first_search.html" class="btn btn-secondary">Try DFS</a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div style="text-align: center;">
-                <a href="../index.html" class="back-button">← Back to Home</a>
+            <!-- Projects Grid -->
+            <div class="projects-section">
+                <h2 class="section-title animate-slide-up">All Projects</h2>
+                <div class="projects-grid grid grid-cols-projects">
+                    <div class="project-card card animate-slide-up">
+                        <div class="project-preview">
+                            <div class="project-icon">🔄</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="project-title">Algorithm Visualizers</h3>
+                            <p class="project-description">
+                                Interactive tools for visualizing algorithms including sorting algorithms (Merge Sort, Insertion Sort) and graph traversal (Depth-First Search) with step-by-step animation and controls.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">Canvas API</span>
+                                <span class="project-tag">Algorithms</span>
+                                <span class="project-tag">Visualization</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="Algorithm Visualizer/merge_sort.html" class="project-link">Merge Sort →</a>
+                                <a href="Algorithm Visualizer/insertion_sort.html" class="project-link">Insertion Sort →</a>
+                                <a href="Algorithm Visualizer/depth_first_search.html" class="project-link">DFS →</a>
+                                <a href="Algorithm Visualizer/README.md" class="project-link">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card card animate-slide-up">
+                        <div class="project-preview">
+                            <div class="project-icon">🧠</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="project-title">Interactive Neural Network</h3>
+                            <p class="project-description">
+                                Train a neural network to recognize handwritten digits using TensorFlow.js. Draw digits on the canvas and see real-time predictions with confidence scores. Features live training progress visualization and adjustable hyperparameters.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">TensorFlow.js</span>
+                                <span class="project-tag">Machine Learning</span>
+                                <span class="project-tag">Neural Networks</span>
+                                <span class="project-tag">Data Viz</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="Interactive NN/interactive_NN.html" class="project-link">Try It Out →</a>
+                                <a href="Interactive NN/Interactive_NN_README.md" class="project-link">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card card animate-slide-up">
+                        <div class="project-preview">
+                            <div class="project-icon">⚡</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="project-title">Automated Resume System</h3>
+                            <p class="project-description">
+                                Self-hosted automation pipeline using n8n that synchronizes resume content from Google Docs to GitHub Pages, ensuring my portfolio always reflects the most current information.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">n8n</span>
+                                <span class="project-tag">GitHub Actions</span>
+                                <span class="project-tag">Automation</span>
+                                <span class="project-tag">CI/CD</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="../Experience Page/experience.html" class="project-link">View Resume →</a>
+                                <a href="https://github.com/talundy" class="project-link">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Home -->
+            <div class="back-section text-center">
+                <a href="../index.html" class="btn btn-secondary">
+                    ← Back to Home
+                </a>
             </div>
         </div>
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-social-links">
@@ -106,9 +166,16 @@
                         GitHub
                     </a>
                 </div>
-                <p>&copy; 2024 Thomas Lundy. All rights reserved.</p>
+                <p>&copy; 2025 Thomas Lundy. Built with care and attention to detail.</p>
             </div>
         </div>
     </footer>
+
+    <!-- JavaScript Modules -->
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/card-interactions.js"></script>
+    <script src="../js/portfolio.js"></script>
 </body>
 </html>

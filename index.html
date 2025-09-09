@@ -194,91 +194,16 @@
                         GitHub
                     </a>
                 </div>
-                <p>&copy; 2024 Thomas Lundy. Built with care and attention to detail.</p>
+                <p>&copy; 2025 Thomas Lundy. Built with care and attention to detail.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Navigation functionality
-        const navToggle = document.querySelector('.nav-toggle');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const nav = document.querySelector('.nav');
-
-        // Mobile navigation toggle
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-        });
-
-        // Close mobile nav when clicking on links
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.classList.remove('active');
-                mobileNav.classList.remove('active');
-            });
-        });
-
-        // Navigation scroll effect
-        let lastScrollY = window.scrollY;
-        
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            
-            if (scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-            
-            lastScrollY = scrollY;
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Staggered animation for project cards
-        const projectCards = document.querySelectorAll('.project-card');
-        const projectObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 200);
-                }
-            });
-        }, observerOptions);
-
-        projectCards.forEach(card => {
-            projectObserver.observe(card);
-        });
-
-        // Enhanced hover effects for cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
+    <!-- JavaScript Modules -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/card-interactions.js"></script>
+    <script src="js/homepage.js"></script>
 </body>
 </html>
