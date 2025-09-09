@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        :root {
+            --color-bg: #fefcf8;
+            --color-surface: #ffffff;
+            --color-surface-alt: #f8f6f2;
+            --color-text-primary: #2c2c2c;
+            --color-text-secondary: #666666;
+            --color-text-muted: #999999;
+            --color-accent: #8b7355;
+            --color-accent-light: #a68b68;
+            --color-border: #e8e5e0;
+            --color-hover: #f2f0ed;
+            --shadow-sm: 0 2px 8px rgba(139, 115, 85, 0.08);
+            --shadow-md: 0 4px 16px rgba(139, 115, 85, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text-primary);
+            background: var(--color-bg);
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(254, 252, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-alt) 100%);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 32px;
+            font-weight: 400;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .cta-button:hover {
+            background: var(--color-accent-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-preview {
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.2) 0%, transparent 50%);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            color: white;
+            z-index: 1;
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text-primary);
+        }
+
+        .project-description {
+            color: var(--color-text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            padding: 4px 12px;
+            background: var(--color-surface-alt);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .project-link {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--color-accent-light);
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            position: relative;
+            padding: 32px 0 32px 60px;
+            border-left: 2px solid var(--color-border);
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: var(--transition);
+        }
+
+        .experience-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 40px;
+            width: 10px;
+            height: 10px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .experience-company {
+            color: var(--color-accent);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .experience-date {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .experience-description {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--color-surface-alt);
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--color-text-primary);
+            font-weight: 500;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-text-primary);
+            color: var(--color-surface);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            color: #cccccc;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .experience-item {
+                padding-left: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Your Name</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Building the Future with Code</h1>
+            <p class="hero-subtitle">Full-Stack Developer & AI Enthusiast</p>
+            <p class="hero-description">
+                I create intelligent algorithms and interactive experiences that bridge the gap between complex data and human understanding. Currently exploring the intersection of AI safety and user-centered design.
+            </p>
+            <a href="#projects" class="cta-button">
+                Explore My Work
+                <span>↓</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">
+                Interactive algorithms and neural networks that make complex concepts accessible and engaging
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-preview">
+                        <div class="project-icon">🔄</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Algorithm Visualizers</h3>
+                        <p class="project-description">
+                            Interactive visualizations of sorting algorithms, pathfinding, and data structures. Built to help students and developers understand complex algorithmic concepts through visual learning.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Canvas API</span>
+                            <span class="project-tag">Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo →</a>
+                            <a href="#" class="project-link">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-preview">
+                        <div class="project-icon">🧠</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Interactive Neural Network</h3>
+                        <p class="project-description">
+                            A browser-based neural network simulator that lets users experiment with different architectures, training data, and parameters in real-time. Perfect for understanding ML fundamentals.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">TensorFlow.js</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Data Viz</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Live Demo →</a>
+                            <a href="#" class="project-link">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-preview">
+                        <div class="project-icon">⚡</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automated Resume System</h3>
+                        <p class="project-description">
+                            Self-hosted automation pipeline using n8n that synchronizes resume content from Google Docs to GitHub Pages, ensuring my portfolio always reflects the most current information.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">n8n</span>
+                            <span class="project-tag">GitHub Actions</span>
+                            <span class="project-tag">Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">Learn More →</a>
+                            <a href="#" class="project-link">Implementation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">
+                My journey through technology, research, and continuous learning
+            </p>
+            
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3 class="experience-title">Research Assistant</h3>
+                    <div class="experience-company">University AI Lab</div>
+                    <div class="experience-date">2023 - Present</div>
+                    <p class="experience-description">
+                        Contributing to AI safety research with focus on interpretability and alignment. Developing tools for neural network analysis and working on projects related to robust AI systems.
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3 class="experience-title">Full-Stack Developer</h3>
+                    <div class="experience-company">Tech Startup</div>
+                    <div class="experience-date">2022 - 2023</div>
+                    <p class="experience-description">
+                        Built scalable web applications using modern frameworks. Implemented CI/CD pipelines, optimized database performance, and collaborated with cross-functional teams to deliver user-centered solutions.
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3 class="experience-title">Software Engineering Intern</h3>
+                    <div class="experience-company">Fortune 500 Company</div>
+                    <div class="experience-date">Summer 2022</div>
+                    <p class="experience-description">
+                        Developed internal tools that improved team productivity by 40%. Gained experience with enterprise-scale systems and agile development methodologies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">
+                Always interested in discussing AI safety, innovative projects, and opportunities to make a positive impact
+            </p>
+            
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-link">
+                    <span>📧</span>
+                    Email
+                </a>
+                <a href="#" class="contact-link">
+                    <span>💼</span>
+                    LinkedIn
+                </a>
+                <a href="#" class="contact-link">
+                    <span>🐙</span>
+                    GitHub
+                </a>
+                <a href="#" class="contact-link">
+                    <span>🐦</span>
+                    Twitter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Your Name. Built with care and attention to detail.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('.section, .project-card, .experience-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Staggered animation for project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }, observerOptions);
+
+        projectCards.forEach(card => {
+            projectObserver.observe(card);
+        });
+
+        // Navigation background on scroll
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                nav.style.background = 'rgba(254, 252, 248, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(139, 115, 85, 0.1)';
+            } else {
+                nav.style.background = 'rgba(254, 252, 248, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+            
+            lastScrollY = scrollY;
+        });
+
+        // Add subtle parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Enhanced hover effects for project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
