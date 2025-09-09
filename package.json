@@ -1,7 +1,39 @@
 {
+  "name": "talundy-portfolio",
+  "version": "1.0.0",
+  "description": "Thomas Lundy's professional portfolio website",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build/build.js",
+    "build:css": "npm run minify:css",
+    "build:js": "npm run minify:js",
+    "build:html": "node build/html-processor.js",
+    "minify:css": "mkdir -p dist/assets/css && for file in src/assets/css/*.css; do npx clean-css-cli -o dist/assets/css/$(basename \"$file\") \"$file\"; done",
+    "minify:js": "mkdir -p dist/assets/js && for file in src/assets/js/*.js; do npx terser \"$file\" -o dist/assets/js/$(basename \"$file\") -c -m; done",
+    "copy:html": "cp -r src/pages/* dist/ && cp -r src/projects dist/ && cp -r src/assets/resumes dist/assets/",
+    "copy:assets": "cp -r src/assets/images dist/assets/ 2>/dev/null || true",
+    "clean": "rm -rf dist/*",
+    "dev": "npm run build && npx live-server dist --port=3000",
+    "serve": "npx live-server dist --port=3000",
+    "watch": "npm run build && npx live-server dist --port=3000 --watch=src",
+    "install-deps": "npm install clean-css-cli terser live-server --save-dev"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
-    "jsdom": "^26.1.0"
-  }
+    "clean-css-cli": "^5.6.3",
+    "jsdom": "^26.1.0",
+    "live-server": "^1.2.2",
+    "terser": "^5.44.0"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "static",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Thomas Lundy",
+  "license": "MIT"
 }

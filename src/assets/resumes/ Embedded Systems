@@ -1,0 +1,51 @@
+Thomas Lundy
+(831) 205-9618 | tomalundy@gmail.com | LinkedIn: linkedin.com/in/tlundy448/ 
+
+PROFESSIONAL SUMMARY	
+
+A recent CPE graduate looking to gain entry-level embedded systems and software engineering experience. Background in hardware-software integration, real-time systems, and microcontroller development.
+
+WORK EXPERIENCE	
+
+Piadina at Hotel San Luis Obispo					                                   
+Server		June 2022 – Current
+Cross-trained across multiple roles
+Nominated Associate of the Quarter, September 2024
+Trusted with creating standard operating procedure for the Food Expo position
+
+EDUCATION	
+
+California Polytechnic State University 	San Luis Obispo, CA
+Bachelor of Science, Computer Engineering 	June 2025 
+Member of Eta Kappa Nu, Epsilon Phi Chapter Honors Society
+Formal Chair, Pi Kappa Phi Fraternity
+Cumulative GPA: 3.2/4.0
+PROJECTS	
+
+K9Kinetics  					                                   
+Senior Capstone Project	Sep 2024 – Mar 2025
+
+Led a team of 3 to develop an iOS application and accompanying hardware to monitor real-time GPS location with sub 5 meter accuracy, temperature tracking with ±1℃ accuracy, and other live telemetry data on a device built to autonomously capture canine/equine health data through integrated sensor systems.
+Software Tooling: Docker, Linux, Github, Arduino, Xcode
+Hardware: Arduino MKR NB 1500, Arduino MKR ASX0017 GPS Hat, Sparkfun Micro IMU + interfaces
+
+STM32 Low-Power Motion Detector 					                                   
+Embedded Systems – CSC 316	Dec 2024
+
+For my class final project, I chose to interface a PIR sensor with the STM32 (ARM microprocessor) in order to learn about relevant systems not covered in other class projects: specifically power modes and watchdog timers.
+
+CERTIFICATIONS
+edX/HarvardX
+Certificate of Completion, CS50’s Introduction to Databases with SQL 	(In Progress)
+Certificate of Completion, CS50’s Introduction to Artificial Intelligence with Python 	(In Progress)
+
+RELEVANT COURSEWORK	
+
+Cal Poly – STAT 350: Probability and Stochastic Processes for Engineers 	Spring 2024
+Cal Poly – CPE 333: Computer Hardware Architecture and Design	Spring 2024
+Cal Poly – CPE 316: Microcontrollers and Embedded Applications 	Fall 2024
+TECHNICAL SKILLS
+
+Embedded Systems: C, Arduino, STM32, RISC-V Assembly
+Software Development: Java, Python, Swift, JavaScript, SQL
+Tools & Platforms: Docker, Linux, AWS (Lambda, EC2, S3, IAM), Xcode, Git/GitHub 
