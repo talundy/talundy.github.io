@@ -3,77 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Thomas Lundy - Portfolio</title>
-    <link rel="stylesheet" href="styles/common.css">
+    <title>Thomas Lundy - Computer Engineering & AI Safety</title>
+    <meta name="description" content="Computer Engineering graduate exploring AI safety research, embedded systems, and interactive algorithm visualizations.">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="styles/navigation.css">
     <link rel="stylesheet" href="styles/home.css">
-    <style>
-        /* Home page specific header styles */
-        header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .logo {
-            color: white;
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Thomas Lundy</div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Thomas Lundy</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="About Me Page/about_me.html">About</a></li>
                 <li><a href="Portfolio Page/portfolio.html">Portfolio</a></li>
                 <li><a href="Experience Page/experience.html">Experience</a></li>
             </ul>
-        </nav>
-    </header>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav">
+            <ul class="mobile-nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="About Me Page/about_me.html">About</a></li>
+                <li><a href="Portfolio Page/portfolio.html">Portfolio</a></li>
+                <li><a href="Experience Page/experience.html">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <section class="hero" id="home">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h1>Hi, I'm Thomas Lundy</h1>
-            <p>Welcome to my portfolio website. I'm passionate about technology and creating innovative solutions.</p>
-            <div class="cta-buttons">
-                <a href="About Me Page/about_me.html" class="btn btn-primary">Learn More About Me</a>
-                <a href="Portfolio Page/portfolio.html" class="btn btn-secondary">View My Work</a>
+            <div class="hero-content animate-fade-in">
+                <h1 class="hero-title">Building the Future with Code</h1>
+                <p class="hero-subtitle">Computer Engineering Graduate & AI Safety Researcher</p>
+                <p class="hero-description">
+                    I create intelligent algorithms and interactive experiences that bridge the gap between complex data and human understanding. Currently exploring the intersection of AI safety, embedded systems, and user-centered design.
+                </p>
+                <div class="hero-actions">
+                    <a href="Portfolio Page/portfolio.html" class="btn btn-primary">
+                        Explore My Work
+                        <span>→</span>
+                    </a>
+                    <a href="About Me Page/about_me.html" class="btn btn-secondary">
+                        Learn More About Me
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="sections">
+    <!-- Featured Projects Section -->
+    <section class="featured-projects">
         <div class="container">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #333;">What I Do</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 3rem;">Explore the different aspects of my professional journey</p>
+            <div class="section-header animate-slide-up">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Interactive algorithms and neural networks that make complex concepts accessible and engaging
+                </p>
+            </div>
             
-            <div class="section-grid">
-                <div class="section-card">
-                    <h3>About Me</h3>
-                    <p>Get to know me better - my background, skills, and what drives me in the world of technology.</p>
-                    <a href="About Me Page/about_me.html" class="btn btn-primary">Learn More</a>
+            <div class="projects-grid grid grid-cols-projects">
+                <div class="project-card card animate-slide-up">
+                    <div class="project-preview">
+                        <div class="project-icon">🔄</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="project-title">Algorithm Visualizers</h3>
+                        <p class="project-description">
+                            Interactive visualizations of sorting algorithms, pathfinding, and data structures. Built to help students and developers understand complex algorithmic concepts through visual learning.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Canvas API</span>
+                            <span class="project-tag">Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Portfolio Page/Algorithm Visualizer/" class="project-link">Live Demo →</a>
+                            <a href="https://github.com/talundy" class="project-link">Source Code</a>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="section-card">
-                    <h3>Portfolio</h3>
-                    <p>Explore my projects and see examples of my work, including the Algorithm Visualizer and other creations.</p>
-                    <a href="Portfolio Page/portfolio.html" class="btn btn-primary">View Projects</a>
+
+                <div class="project-card card animate-slide-up">
+                    <div class="project-preview">
+                        <div class="project-icon">🧠</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="project-title">Interactive Neural Network</h3>
+                        <p class="project-description">
+                            A browser-based neural network simulator that lets users experiment with different architectures, training data, and parameters in real-time. Perfect for understanding ML fundamentals.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">TensorFlow.js</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Data Viz</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Portfolio Page/Interactive NN/" class="project-link">Live Demo →</a>
+                            <a href="https://github.com/talundy" class="project-link">Source Code</a>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="section-card">
-                    <h3>Experience</h3>
-                    <p>Learn about my professional experience, skills, and what I can bring to your team or project.</p>
-                    <a href="Experience Page/experience.html" class="btn btn-primary">See Experience</a>
+
+                <div class="project-card card animate-slide-up">
+                    <div class="project-preview">
+                        <div class="project-icon">⚡</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="project-title">Automated Resume System</h3>
+                        <p class="project-description">
+                            Self-hosted automation pipeline using n8n that synchronizes resume content from Google Docs to GitHub Pages, ensuring my portfolio always reflects the most current information.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">n8n</span>
+                            <span class="project-tag">GitHub Actions</span>
+                            <span class="project-tag">Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="Experience Page/experience.html" class="project-link">View Resume →</a>
+                            <a href="https://github.com/talundy" class="project-link">Implementation</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Quick Navigation Section -->
+    <section class="quick-nav">
+        <div class="container">
+            <div class="section-header animate-slide-up">
+                <h2 class="section-title">Explore My Journey</h2>
+                <p class="section-subtitle">
+                    Discover the different aspects of my professional development and technical expertise
+                </p>
+            </div>
+            
+            <div class="nav-grid grid grid-cols-3">
+                <div class="nav-card card animate-slide-up">
+                    <div class="card-body text-center">
+                        <div class="nav-icon">👨‍💻</div>
+                        <h3 class="nav-title">About Me</h3>
+                        <p class="nav-description">Get to know my background, skills, and what drives me in the world of technology and AI safety research.</p>
+                        <a href="About Me Page/about_me.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="nav-card card animate-slide-up">
+                    <div class="card-body text-center">
+                        <div class="nav-icon">💼</div>
+                        <h3 class="nav-title">Experience</h3>
+                        <p class="nav-description">Explore my professional experience, technical skills, and what I can bring to your team or research project.</p>
+                        <a href="Experience Page/experience.html" class="btn btn-primary">View Experience</a>
+                    </div>
+                </div>
+                
+                <div class="nav-card card animate-slide-up">
+                    <div class="card-body text-center">
+                        <div class="nav-icon">🚀</div>
+                        <h3 class="nav-title">Portfolio</h3>
+                        <p class="nav-description">Dive deep into my projects, including interactive visualizations and AI safety research applications.</p>
+                        <a href="Portfolio Page/portfolio.html" class="btn btn-primary">View Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-social-links">
@@ -90,9 +194,91 @@
                         GitHub
                     </a>
                 </div>
-                <p>&copy; 2024 Thomas Lundy. All rights reserved.</p>
+                <p>&copy; 2024 Thomas Lundy. Built with care and attention to detail.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Navigation functionality
+        const navToggle = document.querySelector('.nav-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const nav = document.querySelector('.nav');
+
+        // Mobile navigation toggle
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile nav when clicking on links
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Navigation scroll effect
+        let lastScrollY = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            lastScrollY = scrollY;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Staggered animation for project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }, observerOptions);
+
+        projectCards.forEach(card => {
+            projectObserver.observe(card);
+        });
+
+        // Enhanced hover effects for cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
