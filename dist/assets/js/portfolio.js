@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-// Portfolio page specific functionality
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Portfolio page script loaded');
-    
-    // Add any portfolio page specific functionality here
-    initializePortfolioPage();
-});
-
-function initializePortfolioPage() {
-    // Portfolio page initialization code
-    console.log('Portfolio page initialized');
-}
-=======
 /**
  * Portfolio Module - Handles portfolio page-specific functionality
  * Includes project card interactions and portfolio-specific animations
@@ -64,4 +50,3 @@ document.addEventListener('DOMContentLoaded', () => {
         new PortfolioController();
     }
 });
->>>>>>> f4a3186b685599d4c1d7d4b7f147e28283737ff8

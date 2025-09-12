@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-// About page specific functionality
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('About page script loaded');
-    
-    // Add any about page specific functionality here
-    initializeAboutPage();
-});
-
-function initializeAboutPage() {
-    // About page initialization code
-    console.log('About page initialized');
-}
-=======
 /**
  * About Module - Handles about page-specific functionality
  * Includes content card interactions and skill category animations
@@ -62,4 +48,3 @@ document.addEventListener('DOMContentLoaded', () => {
         new AboutController();
     }
 });
->>>>>>> f4a3186b685599d4c1d7d4b7f147e28283737ff8

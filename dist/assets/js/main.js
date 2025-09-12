@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-// Main JavaScript file
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Main script loaded');
-    
-    // Initialize any global functionality here
-    initializeApp();
-});
-
-function initializeApp() {
-    // Add any global initialization code here
-    console.log('App initialized');
-=======
 /**
  * Main JavaScript Entry Point
  * Initializes all shared modules and handles global functionality
@@ -54,5 +41,4 @@ function initializeGlobalFeatures() {
             }
         });
     });
->>>>>>> f4a3186b685599d4c1d7d4b7f147e28283737ff8
 }

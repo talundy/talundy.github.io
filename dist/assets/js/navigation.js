@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-// Navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-    
-    if (navToggle && mobileNav) {
-        navToggle.addEventListener('click', function() {
-            mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
-        });
-    }
-    
-    // Close mobile nav when clicking on a link
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (mobileNav) {
-                mobileNav.style.display = 'none';
-            }
-        });
-    });
-=======
 /**
  * Navigation Module - Shared functionality across all pages
  * Handles mobile navigation, scroll effects, and common interactions
@@ -83,5 +61,4 @@ class Navigation {
 // Initialize navigation when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new Navigation();
->>>>>>> f4a3186b685599d4c1d7d4b7f147e28283737ff8
 });

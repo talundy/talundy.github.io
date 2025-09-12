@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-// Experience page specific functionality
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Experience page script loaded');
-    
-    // Add any experience page specific functionality here
-    initializeExperiencePage();
-});
-
-function initializeExperiencePage() {
-    // Experience page initialization code
-    console.log('Experience page initialized');
-}
-=======
 /**
  * Experience Module - Handles experience page-specific functionality
  * Includes timeline interactions and skill card animations
@@ -78,4 +64,3 @@ document.addEventListener('DOMContentLoaded', () => {
         new ExperienceController();
     }
 });
->>>>>>> f4a3186b685599d4c1d7d4b7f147e28283737ff8

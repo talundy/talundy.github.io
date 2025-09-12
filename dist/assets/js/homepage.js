@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-// Homepage specific functionality
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Homepage script loaded');
-    
-    // Add any homepage-specific functionality here
-    initializeHomepage();
-});
-
-function initializeHomepage() {
-    // Homepage initialization code
-    console.log('Homepage initialized');
-}
-=======
 /**
  * Homepage Module - Handles homepage-specific functionality
  * Includes hero animations and homepage-specific interactions
@@ -63,4 +49,3 @@ document.addEventListener('DOMContentLoaded', () => {
         new HomepageController();
     }
 });
->>>>>>> f4a3186b685599d4c1d7d4b7f147e28283737ff8
